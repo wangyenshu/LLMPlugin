@@ -2,7 +2,7 @@
 |Name        |LLMPlugin|
 |Description |Displays an interface for llm.js to run a language model.|
 |Source      |https://wangyenshu.github.io#LLMPlugin|
-|Version     |0.1|
+|Version     |0.1.1|
 |Author      |Yanshu Wang|
 |License     |MIT|
 |~CoreVersion|2.x|
