@@ -1,18 +1,27 @@
 /***
-|Name|LLMPlugin|
-|Source|https://wangyenshu.github.io#LLMPlugin|
-|Version|0.1|
-|Author|Yanshu Wang|
-|License|MIT|
+|Name        |LLMPlugin|
+|Description |Displays an interface for llm.js to run a language model.|
+|Source      |https://wangyenshu.github.io#LLMPlugin|
+|Version     |0.1|
+|Author      |Yanshu Wang|
+|License     |MIT|
 |~CoreVersion|2.x|
-|Type|plugin|
-|Description|Displays an interface for llm.js to run a language model. Accepts optional parameters "prompt", "model", and "modelType".|
+|Type        |plugin|
 !!!!!Documentation
-Edit llm.js path in [[LLMPluginConfig]].
+Set the path to llm.js in [[LLMPluginConfig]].
+Use the {{{llmjs}}} macro (accepts optional parameters "prompt", "model", and "modelType"):
 {{{
-<<llmjs prompt:"def fibonacci(n):" model:"https://huggingface.co/RichardErkhov/bigcode_-_tiny_starcoder_py-gguf/resolve/main/tiny_starcoder_py.Q8_0.gguf" modelType:"GGUF_CPU">>
+<<llmjs
+  prompt:"def fibonacci(n):"
+  model:"https://huggingface.co/RichardErkhov/bigcode_-_tiny_starcoder_py-gguf/resolve/main/tiny_starcoder_py.Q8_0.gguf"
+  modelType:"GGUF_CPU"
+>>
 }}}
-<<llmjs prompt:"def fibonacci(n):" model:"https://huggingface.co/RichardErkhov/bigcode_-_tiny_starcoder_py-gguf/resolve/main/tiny_starcoder_py.Q8_0.gguf" modelType:"GGUF_CPU">>
+<<llmjs
+  prompt:"def fibonacci(n):"
+  model:"https://huggingface.co/RichardErkhov/bigcode_-_tiny_starcoder_py-gguf/resolve/main/tiny_starcoder_py.Q8_0.gguf"
+  modelType:"GGUF_CPU"
+>>
 !!!!!Code
 ***/
 //{{{
