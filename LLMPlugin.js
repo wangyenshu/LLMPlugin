@@ -36,12 +36,23 @@ config.macros.llmjs = {
         // Create a container for the LLM.js interface
         var container = document.createElement("div");
         container.innerHTML = `
+            <style>
+			  .llmInteraction {
+				box-sizing: border-box;
+				border: 1px solid black;
+				width: 500px;
+				border-radius: 10px;
+				padding: 10px;
+
+				font-family: monospace;
+			  }
+			</style>
             <h3>Enter Prompt for LLM:</h3>
-            <textarea id="llmPromptInput" rows="4" cols="60" style="background-color:#f4f4f4;">${initialPrompt}</textarea>
+            <textarea id="llmPromptInput" rows="4" class="llmInteraction" style="background-color:#f4f4f4;">${initialPrompt}</textarea>
             <div><button id="runLLMButton">Run Model</button></div>
             <div>
               <h3>Output:</h3>
-              <pre id="llmOutput" style="white-space: pre-wrap; font-family: monospace; padding: 10px; background-color:#EBEEF1; border:1px solid black; width:470px; height:150px; overflow-y:auto;"></pre>
+              <pre id="llmOutput" class="llmInteraction" style="white-space: pre-wrap; background-color:#EBEEF1; height:150px; overflow-y:auto;"></pre>
             </div>
         `;
         place.appendChild(container);
