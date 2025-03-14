@@ -1,18 +1,27 @@
 /***
-|Name|LLMPlugin|
-|Source|https://wangyenshu.github.io#LLMPlugin|
-|Version|0.1|
-|Author|Yanshu Wang|
-|License|MIT|
+|Name        |LLMPlugin|
+|Description |Displays an interface for llm.js to run a language model.|
+|Source      |https://wangyenshu.github.io#LLMPlugin|
+|Version     |0.1.1|
+|Author      |Yanshu Wang|
+|License     |MIT|
 |~CoreVersion|2.x|
-|Type|plugin|
-|Description|Displays an interface for llm.js to run a language model. Accepts optional parameters "prompt", "model", and "modelType".|
+|Type        |plugin|
 !!!!!Documentation
-Edit llm.js path in [[LLMPluginConfig]].
+Set the path to llm.js in [[LLMPluginConfig]].
+Use the {{{llmjs}}} macro (accepts optional parameters "prompt", "model", and "modelType"):
 {{{
-<<llmjs prompt:"def fibonacci(n):" model:"https://huggingface.co/RichardErkhov/bigcode_-_tiny_starcoder_py-gguf/resolve/main/tiny_starcoder_py.Q8_0.gguf" modelType:"GGUF_CPU">>
+<<llmjs
+  prompt:"def fibonacci(n):"
+  model:"https://huggingface.co/RichardErkhov/bigcode_-_tiny_starcoder_py-gguf/resolve/main/tiny_starcoder_py.Q8_0.gguf"
+  modelType:"GGUF_CPU"
+>>
 }}}
-<<llmjs prompt:"def fibonacci(n):" model:"https://huggingface.co/RichardErkhov/bigcode_-_tiny_starcoder_py-gguf/resolve/main/tiny_starcoder_py.Q8_0.gguf" modelType:"GGUF_CPU">>
+<<llmjs
+  prompt:"def fibonacci(n):"
+  model:"https://huggingface.co/RichardErkhov/bigcode_-_tiny_starcoder_py-gguf/resolve/main/tiny_starcoder_py.Q8_0.gguf"
+  modelType:"GGUF_CPU"
+>>
 !!!!!Code
 ***/
 //{{{
@@ -27,12 +36,23 @@ config.macros.llmjs = {
         // Create a container for the LLM.js interface
         var container = document.createElement("div");
         container.innerHTML = `
+            <style>
+			  .llmInteraction {
+				box-sizing: border-box;
+				border: 1px solid black;
+				width: 500px;
+				border-radius: 10px;
+				padding: 10px;
+
+				font-family: monospace;
+			  }
+			</style>
             <h3>Enter Prompt for LLM:</h3>
-            <textarea id="llmPromptInput" rows="4" cols="60" style="background-color:#f4f4f4;">${initialPrompt}</textarea>
+            <textarea id="llmPromptInput" rows="4" class="llmInteraction" style="background-color:#f4f4f4;">${initialPrompt}</textarea>
             <div><button id="runLLMButton">Run Model</button></div>
             <div>
               <h3>Output:</h3>
-              <pre id="llmOutput" style="white-space: pre-wrap; font-family: monospace; padding: 10px; background-color:#EBEEF1; border:1px solid black; width:470px; height:150px; overflow-y:auto;"></pre>
+              <pre id="llmOutput" class="llmInteraction" style="white-space: pre-wrap; background-color:#EBEEF1; height:150px; overflow-y:auto;"></pre>
             </div>
         `;
         place.appendChild(container);
